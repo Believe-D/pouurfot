@@ -1,0 +1,67 @@
+server:
+  port: 8092
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    mime-types: image/jpeg,image/png,image/gif,application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver # .cj
+      url: jdbc:mysql://localhost:3306/pourrfot?serverTimezone=GMT%2B8&characterEncoding=utf-8
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource
+      # 初始化大小，最大，最小
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters:
+        commons-log.connection-logger-name: stat,wall,slf4j
+      stat-view-servlet: #访问监控网页的登录用户名和密码
+        url-pattern: /druid/*
+        reset-enable: false
+        #        allow: 127.0.0.1
+        login-username: druid
+        login-password: druid
+
+  #格式化时间格式
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 300MB
+  profiles:
+    active: default
+## 该配置节点为独立的节点，若将这个配置放在spring的节点下，会导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #注意：一定要对应mapper映射xml文件的所在路径
+
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  pool:
+    jmx-enabled: false
+  thumb-image:
+    width: 100
+    height: 100
+  tracker-list: 47.99.244.66:22122
