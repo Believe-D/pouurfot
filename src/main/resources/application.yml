@@ -10,9 +10,9 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver # .cj
-      url: jdbc:mysql://localhost:3306/pourrfot?serverTimezone=GMT%2B8&characterEncoding=utf-8
+      url: jdbc:mysql://47.99.244.66:8443/pourrfot?serverTimezone=GMT%2B8&characterEncoding=utf-8
       username: root
-      password: root
+      password: Yanglao123
       type: com.alibaba.druid.pool.DruidDataSource
       # 初始化大小，最大，最小
       initial-size: 1

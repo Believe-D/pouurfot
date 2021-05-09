@@ -14,9 +14,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/pourrfot?serverTimezone=GMT%2B8"
+                        connectionURL="jdbc:mysql://47.99.244.66:8443/pourrfot?serverTimezone=GMT%2B8"
                         userId="root"
-                        password="root">
+                        password="Yanglao123">
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
@@ -58,8 +58,8 @@
             <columnOverride column="page_area" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="page_else_info" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>-->
-        <table tableName="POT_STUDENT"></table>
-        <table tableName="POT_GRADE"></table>
+        <table tableName="POT_TASK"></table>
+        <!--<table tableName="POT_GRADE"></table>-->
 
     </context>
 </generatorConfiguration>

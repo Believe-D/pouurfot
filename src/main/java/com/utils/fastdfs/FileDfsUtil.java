@@ -40,6 +40,7 @@ public class FileDfsUtil {
             fis = multipartFile.getInputStream();
             StorePath storePath = this.storageClient.uploadFile(fis,
                     multipartFile.getSize(), originalFilename, null);
+
             System.out.println(storePath);
             return "group1/"+storePath.getPath();
         } catch (Exception ex) {
